@@ -26,9 +26,9 @@ app.route('/name')
     }
   })
   
-  // Handle POST requests
+  // Handle POST requests (Form submission)
   .post((req, res) => {
-    const { first, last } = req.body; // Extract 'first' and 'last' from the request body
+    const { first, last } = req.body; // Extract 'first' and 'last' from the form data
     if (first && last) {
       res.json({ name: `${first} ${last}` }); // Respond with JSON object { name: 'firstname lastname' }
     } else {
