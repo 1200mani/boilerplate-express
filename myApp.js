@@ -2,9 +2,11 @@
 require('dotenv').config();
 
 const express = require('express'); // Import Express
+const bodyParser = require('body-parser'); // Import body-parser
 const app = express(); // Create an Express app
 
-app.use(express.json()); // Middleware to parse JSON request bodies
+// Use body-parser middleware to handle URL-encoded data
+app.use(bodyParser.urlencoded({ extended: false })); // Handle URL-encoded form data
 
 // Logger middleware: logs method, path, and IP of every request
 app.use((req, res, next) => {
