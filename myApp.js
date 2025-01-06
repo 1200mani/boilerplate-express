@@ -10,12 +10,10 @@ app.use((req, res, next) => {
   next(); // Pass control to the next handler
 });
 
-// Middleware for /now route to add current time to req.time
-app.get('/now', (req, res, next) => {
-  req.time = new Date().toString(); // Add the current time to req.time
-  next(); // Move to the next handler
-}, (req, res) => {
-  res.json({ time: req.time }); // Respond with the time stored in req.time
+// Echo server: Responds with the word passed in the URL
+app.get('/:word/echo', (req, res) => {
+  const word = req.params.word; // Extract the word from the URL
+  res.json({ echo: word }); // Respond with the word inside a JSON object
 });
 
 // Serve JSON object for GET requests to the /json route
